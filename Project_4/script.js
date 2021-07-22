@@ -78,3 +78,14 @@ const displayMovements = function (movements) {
   });
 };
 displayMovements(account1.movements);
+
+const eurToUsd = 1.1;
+const movementsUSD = movements.map((mov) => mov * eurToUsd);
+
+const movementsDescriptions = movements.map((mov, i, arr) => {
+  if (mov > 0) {
+    return `Movement ${i + 1}: You withdrew ${mov}`;
+  } else {
+    return `Movement ${i + 1}: You withdrew ${Math.abs(mov)}`;
+  }
+});
